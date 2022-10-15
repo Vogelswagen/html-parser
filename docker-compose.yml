@@ -1,23 +1,20 @@
 version: '3.8'
 
 networks:
-  parser:
+  parser-network:
     driver: bridge
 
 services:
-  fpm:
-    container_name: "parser_fpm"
-    restart: always
-    tty: true
+  app:
     build:
-      context: ./docker/php
-      args:
-        UID: ${CURRENT_UID}
-        GID: ${CURRENT_UID}
-    user: "root"
+      context: ./docker/php8.1-fpm
+      dockerfile: Dockerfile
+    image: parser/php
+    container_name: "parser_php"
+    restart: always
     volumes:
-      - ./:/app
-      - ./docker/dev/php/logs:/var/log/php
+      - ./code:/var/www/parser.dev
+      - ./docker/php8.1-fpm/logs:/var/log/php8.1-fpm
 
   nginx:
     container_name: "parser_nginx"
