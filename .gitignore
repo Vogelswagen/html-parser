@@ -1,0 +1,6 @@
+/project/.env
+/project/.idea
+/project/.composer
+/project/public/storage
+/project/docker/nginx/logs
+/project/docker/php/logs
