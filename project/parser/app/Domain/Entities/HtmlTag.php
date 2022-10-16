@@ -12,7 +12,7 @@ class HtmlTag
 
     public function __construct(string $tagName) {
         $this->tagName = $tagName;
-        $this->quantity = 0;
+        $this->quantity = 1;
     }
 
     public function getName(): string
