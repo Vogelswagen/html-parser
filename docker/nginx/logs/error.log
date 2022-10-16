@@ -1,0 +1,5 @@
+2022/10/15 15:56:21 [error] 7#7: *1 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.18.0.1, server: parser.dev, request: "GET / HTTP/1.1", upstream: "fastcgi://172.18.0.2:9000", host: "parser.dev"
+2022/10/15 18:27:18 [error] 7#7: *1 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.23.0.1, server: parser.dev, request: "GET / HTTP/1.1", host: "parser.dev"
+2022/10/16 07:11:30 [error] 7#7: *1 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.26.0.1, server: parser.dev, request: "GET / HTTP/1.1", host: "parser.dev"
+2022/10/16 07:17:25 [error] 7#7: *2 rewrite or internal redirection cycle while internally redirecting to "/index.php", client: 172.26.0.1, server: parser.dev, request: "GET /test.txt HTTP/1.1", host: "parser.dev"
+2022/10/16 07:28:55 [error] 7#7: *1 open() "/var/www/parser.dev/public/test.txt" failed (2: No such file or directory), client: 172.27.0.1, server: parser.dev, request: "GET /test.txt HTTP/1.1", host: "parser.dev"

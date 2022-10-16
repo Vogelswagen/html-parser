@@ -13,8 +13,10 @@ services:
     container_name: "parser_php"
     restart: always
     volumes:
-      - ./code:/var/www/parser.dev
+      - ./project/parser:/var/www/parser.dev
       - ./docker/php8.1-fpm/logs:/var/log/php8.1-fpm
+    networks:
+      - parser-network
 
   nginx:
     container_name: "parser_nginx"
@@ -22,12 +24,12 @@ services:
       context: ./docker/nginx
       dockerfile: Dockerfile
     volumes:
-      - ./docker/nginx/logs:/var/log/nginx:cached
+      - ./docker/nginx/logs:/var/log/nginx
+      - ./project/parser:/var/www/parser.dev
     restart: unless-stopped
-    tty: true
     ports:
-      - "${NGINX_PUBLIC_PORT:-80}:80"
+      - "80:80"
     depends_on:
-      - fpm
-    links:
-      - fpm
+      - app
+    networks:
+      - parser-network
